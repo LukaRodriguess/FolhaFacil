@@ -6,6 +6,7 @@
 package folhafácil;
 
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
+import java.io.File;
 import javafx.scene.control.TextField;
 import java.net.URL;
 import java.sql.Connection;
@@ -30,9 +31,12 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
@@ -55,34 +59,31 @@ public class dashboardController implements Initializable {
     private Button addEmployee_clearBtn;
     
     @FXML
-    private TableColumn<?, ?> addEmployee_col_date;
-    
-    @FXML
-    private TableColumn<?, ?> addEmployee_col_education;
-    
-    @FXML
-    private TableColumn<?, ?> addEmployee_col_employeeID;
-    
-    @FXML
-    private TableColumn<?, ?> addEmployee_col_firstName;
-    
-    @FXML
-    private TableColumn<?, ?> addEmployee_col_gender;
-    
-    @FXML
     private ImageView addEmployee_col_image;
     
     @FXML
-    private TableColumn<?, ?> addEmployee_col_lastName;
+    private TableColumn<employeeData, String> addEmployee_col_date;
     
     @FXML
-    private TableColumn<?, ?> addEmployee_col_phoneNum;
+    private TableColumn<employeeData, String> addEmployee_col_employeeID;
     
     @FXML
-    private TableColumn<?, ?> addEmployee_col_position;
+    private TableColumn<employeeData, String> addEmployee_col_firstName;
     
     @FXML
-    private TableView<?> addEmployee_col_tableView;
+    private TableColumn<employeeData, String> addEmployee_col_gender;
+    
+    @FXML
+    private TableColumn<employeeData, String> addEmployee_col_lastName;
+    
+    @FXML
+    private TableColumn<employeeData, String> addEmployee_col_phoneNum;
+    
+    @FXML
+    private TableColumn<employeeData, String> addEmployee_col_position;
+    
+    @FXML
+    private TableView<employeeData> addEmployee_col_tableView;
     
     @FXML
     private Button addEmployee_deleteBtn;
@@ -198,9 +199,28 @@ public class dashboardController implements Initializable {
     private PreparedStatement prepare;
     private ResultSet result;
     
+    private Image image;
+    @FXML
+    private TableView<?> addEmployee_tableView;
+    
+    @FXML
+    public void addEmployeeInsertImage(){
+        
+        FileChooser open = new FileChooser();
+        File file = open.showOpenDialog(main_form.getScene().getWindow());
+        
+        if(file != null){
+            getData.path = file.getAbsolutePath();
+            
+            image = new Image(file.toURI().toString(), 101, 127, false, true);
+            addEmployee_col_image.setImage(image);
+        }
+        
+    }
+    
     public ObservableList<employeeData> addEmployeeListData() {
         
-        ObservableList<employeeData> ListData = FXCollections.observableArrayList();
+        ObservableList<employeeData> listData = FXCollections.observableArrayList();
         String sql = "SELECT * FROM employee";
         
         connect = database.connectDb();
@@ -219,16 +239,56 @@ public class dashboardController implements Initializable {
                         , result.getString("position")
                         , result.getString("image")
                         , result.getDate("date"));
+                listData.add(employeeD);
                 
             }
             
         }catch(Exception e) {e.printStackTrace();}
+        return listData;
+    }
+    
+    private ObservableList<employeeData> addEmployeeList;
+    public void addEmployeeShowListData () {
+        addEmployeeList = addEmployeeListData();
+        
+        
+        addEmployee_col_employeeID.setCellValueFactory(new PropertyValueFactory<>("employeeId"));
+        addEmployee_col_firstName.setCellValueFactory(new PropertyValueFactory<>("firstName"));
+        addEmployee_col_lastName.setCellValueFactory(new PropertyValueFactory<>("lastName"));
+        addEmployee_col_gender.setCellValueFactory(new PropertyValueFactory<>("gender"));
+        addEmployee_col_phoneNum.setCellValueFactory(new PropertyValueFactory<>("phoneNum"));
+        addEmployee_col_position.setCellValueFactory(new PropertyValueFactory<>("position"));
+        addEmployee_col_date.setCellValueFactory(new PropertyValueFactory<>("date"));
+        
+        addEmployee_col_tableView.setItems(addEmployeeList);
+        
+        
+    }
+    
+    @FXML
+    public void addEmployeeSelect(){
+        employeeData employeeD = addEmployee_col_tableView.getSelectionModel().getSelectedItem();
+        int num = addEmployee_tableView.getSelectionModel().getSelectedIndex();
+        
+        if((num -1)< -1){return;}
+        
+        addEmployee_employeeID.setText(String.valueOf(employeeD.getEmployeeId()));
+        addEmployee_firstName.setText(employeeD.getFirstName());
+        addEmployee_lastName.setText(employeeD.getLastName());
+        addEmployee_phoneNum.setText(employeeD.getPhoneNum());
+        
+        String uri = "file" + employeeD.getImage();
+        
+        image = new Image(uri, 101, 127, false, true);
+        addEmployee_col_image.setImage(image);
+       }
         
     
     public void displayUsername() {
         login.setText(getData.username);
     }
     
+    @FXML
     public void switchForm(ActionEvent event) {
         
         if (event.getSource() == home_btn) {
@@ -265,6 +325,7 @@ public class dashboardController implements Initializable {
     private double x = 0;
     private double y = 0;
     
+    @FXML
     public void logout() {
         
         Alert alert = new Alert(AlertType.CONFIRMATION);
@@ -309,10 +370,12 @@ public class dashboardController implements Initializable {
         }
     }
     
+    @FXML
     public void close() {
         System.exit(0);
     }
     
+    @FXML
     public void minimize() {
         Stage stage = (Stage) main_form.getScene().getWindow();
         stage.setIconified(true);
@@ -320,6 +383,11 @@ public class dashboardController implements Initializable {
     
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        
+        
+        addEmployeeShowListData();
+        
+        
     }
     
 }

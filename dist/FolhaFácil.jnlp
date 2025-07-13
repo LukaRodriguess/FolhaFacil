@@ -8,7 +8,7 @@
   </information>
   <resources>
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
-    <jar href="FolhaFácil.jar" size="16519" download="eager" />
+    <jar href="FolhaFácil.jar" size="19294" download="eager" />
     <jar href="lib\fontawesomefx-8.9.jar" size="571068" download="eager" />
     <jar href="lib\mysql-connector-java-8.0.26.jar" size="2462364" download="eager" />
     <jar href="lib\ojdbc17.jar" size="7313474" download="eager" />
