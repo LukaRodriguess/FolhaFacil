@@ -1,7 +1,4 @@
 🧾 FolhaFácil - Sistema de Gerenciamento
-https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=java&logoColor=white
-https://img.shields.io/badge/JavaFX-ED8B00?style=for-the-badge&logo=java&logoColor=white
-https://img.shields.io/badge/MySQL-005C84?style=for-the-badge&logo=mysql&logoColor=white
 
 Sistema completo para gestão de funcionários e folha de pagamento desenvolvido em Java com interface JavaFX.
 
@@ -9,7 +6,8 @@ Sistema completo para gestão de funcionários e folha de pagamento desenvolvido
 🔐 Login
 Acesso seguro com validação no banco de dados
 
-<img width="896" height="595" alt="Tela de Login" src="https://github.com/user-attachments/assets/155f9ac5-153c-4743-a44e-d37cfb69d171" />
+<img width="896" height="595" alt="TeladeLoginFolhaFacil" src="https://github.com/user-attachments/assets/c411ad8c-0c1a-4f11-838b-3662e0352627" />
+
 📊 Dashboard
 Painel com estatísticas e gráficos em tempo real
 
