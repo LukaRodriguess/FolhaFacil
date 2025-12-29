@@ -55,20 +55,28 @@ Cálculo automático da folha de pagamento
 
 ## 📁 Estrutura do Projeto
 FolhaFácil/
-├── 📂 src/folhafácil/
-│ ├── 📄 FolhaFacil.java # Main
-│ ├── 📄 FXMLDocumentController.java
-│ ├── 📄 dashboardController.java
-│ ├── 📄 database.java
-│ ├── 📄 employeeData.java
-│ ├── 📄 getData.java
-│ ├── 📄 *.fxml # Telas
-│ └── 📄 *.css # Estilos
-├── 📂 lib/ # Bibliotecas JAR
-├── 📂 database/ # Backup SQL
-├── 📂 employee_images/ # Fotos
-├── 📄 .gitignore
-└── 📄 README.md
+├── src/folhafácil/
+│ ├── FolhaFacil.java
+│ ├── FXMLDocumentController.java
+│ ├── dashboardController.java
+│ ├── database.java
+│ ├── employeeData.java
+│ ├── getData.java
+│ ├── FXMLDocument.fxml
+│ ├── dashboard.fxml
+│ ├── loginDesign.css
+│ └── dashboardDesign.css
+├── lib/
+│ ├── mysql-connector-java-8.0.26.jar
+│ ├── fontawesomefx-8.9.jar
+│ ├── jfreechart-1.0.19.jar
+│ ├── ojdbc17.jar
+│ └── json-20250107.jar
+├── database/
+│ └── employee_backup.sql
+├── employee_images/
+├── .gitignore
+└── README.md
 
 ## ⚙️ Funcionalidades
 - ✅ Login com validação MySQL
