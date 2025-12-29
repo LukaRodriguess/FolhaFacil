@@ -9,6 +9,7 @@ Acesso seguro com validação no banco de dados
 
 <img width="896" height="595" alt="TeladeLoginFolhaFacil" src="https://github.com/user-attachments/assets/c411ad8c-0c1a-4f11-838b-3662e0352627" />
 
+
 📊 Dashboard
 Painel com estatísticas e gráficos em tempo real
 
