@@ -1,0 +1,46 @@
+# NetBeans
+/nbproject/private/
+/build/
+/dist/
+/nbproject/build-impl.xml
+/nbproject/genfiles.properties
+/nbproject/project.properties
+/nbproject/project.xml
+
+# Arquivos compilados
+*.class
+*.jar
+
+# Banco de dados e imagens locais
+/employee_images/
+*.db
+*.log
+
+# Sistema
+.DS_Store
+Thumbs.db
+*.iml
+.idea/
+
+# Executáveis
+*.exe
+*.dll
+*.so
+*.dylib
+
+# Logs
+logs/
+*.log
+
+# Arquivos temporários
+*.tmp
+*.temp
+
+# Backups
+*.bak
+*.backup
+
+# Configurações locais
+*.properties
+.env
+config/
