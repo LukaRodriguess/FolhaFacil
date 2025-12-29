@@ -60,10 +60,10 @@ FolhaFácil/
 │ ├── *.java # Controladores
 │ ├── *.fxml # Telas
 │ └── *.css # Estilos
-├── lib/ # Bibliotecas
+├── lib/ # Bibliotecas JAR
 ├── database/ # Backup SQL
 ├── employee_images/ # Fotos
-└── README.md # Documentação
+├── .gitignore # Ignorados
 
 text
 
