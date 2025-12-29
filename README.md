@@ -28,43 +28,61 @@ Cálculo automático da folha de pagamento
 <img width="1633" height="875" alt="Salários" src="https://github.com/user-attachments/assets/9c400f31-2c74-4fb0-9335-104bb53b65dc" />
 
 
-🛠️ Tecnologias
-Tecnologia	Uso
-Java 8	Linguagem principal
-JavaFX	Interface gráfica
-FXML	Definição das telas
-CSS	Estilização
-MySQL	Banco de dados
-JDBC	Conexão Java-MySQL
-JFreeChart	Gráficos
-NetBeans	IDE de desenvolvimento
+## 🛠️ Tecnologias Utilizadas
 
-📁 Estrutura
-text
+### **Linguagem & Frameworks**
+- **Java 8** - Linguagem principal
+- **JavaFX** - Interface gráfica
+- **FXML** - Definição das telas
+- **CSS** - Estilização
+
+### **Banco de Dados**
+- **MySQL** - Armazenamento de dados
+- **JDBC** - Conexão Java-MySQL
+- **XAMPP** - Servidor local
+
+### **Bibliotecas (JAR)**
+- `mysql-connector-java-8.0.26.jar` - Driver MySQL
+- `fontawesomefx-8.9.jar` - Ícones
+- `jfreechart-1.0.19.jar` - Gráficos
+- `ojdbc17.jar` - Conexão Oracle
+- `json-20250107.jar` - Manipulação JSON
+
+### **Ferramentas**
+- **NetBeans** - IDE de desenvolvimento
+- **Git & GitHub** - Controle de versão
+- **phpMyAdmin** - Admin do banco
+
+## 📁 Estrutura do Projeto
 FolhaFácil/
-├── src/              # Código-fonte (.java, .fxml, .css)
-├── lib/              # Bibliotecas (.jar)
-├── database/         # Backup do banco
-└── README.md         # Documentação
-🚀 Como Executar
-Clone: git clone https://github.com/seu-usuario/folhafacil
+├── src/folhafácil/ # Código-fonte
+│ ├── FolhaFacil.java # Main
+│ ├── *.java # Controladores
+│ ├── *.fxml # Telas
+│ └── *.css # Estilos
+├── lib/ # Bibliotecas
+├── database/ # Backup SQL
+├── employee_images/ # Fotos
+└── README.md # Documentação
 
-Banco: Importe database/employee_backup.sql no MySQL
+text
 
-NetBeans: Abra o projeto e configure as libs em lib/
+## ⚙️ Funcionalidades
+- ✅ Login com validação MySQL
+- ✅ Dashboard com gráficos
+- ✅ CRUD completo de funcionários
+- ✅ Cálculo de folha de pagamento
+- ✅ Backup do banco de dados
 
-Execute: Rode FolhaFacil.java
+## 🚀 Como Executar
+1. Importe `database/employee_backup.sql` no MySQL
+2. Abra no NetBeans
+3. Configure as libs da pasta `lib/`
+4. Execute `FolhaFacil.java`
 
-⚙️ Funcionalidades
-✅ Login seguro com MySQL
-✅ Dashboard com gráficos
-✅ CRUD completo de funcionários
-✅ Cálculo automático de salários
-✅ Backup do banco de dados
-
-👤 Autor
-Luka Rodrigues
-📧 Email: llukrs2003@outlook.com
-🔗 GitHub: @seu-usuario
+## 👤 Autor
+**Luka Rodrigues**  
+📧 llukrs2003@outlook.com  
+🔗 Linkedin: https://www.linkedin.com/in/luka-de-souza-rodrigues-927031204/
 
 ⭐ Gostou? Deixe uma estrela no repositório!
