@@ -40,7 +40,6 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private PasswordField password;
 
-    // Constantes para mensagens
     private static final String ERROR_TITLE = "Error Message";
     private static final String INFO_TITLE = "Information Message";
     private static final String CONFIRM_TITLE = "Confirmação";
@@ -50,11 +49,11 @@ public class FXMLDocumentController implements Initializable {
             showAlert(AlertType.ERROR, ERROR_TITLE, "Por favor, preencha todos os campos em branco");
             return;
         }
-        
+
         String sql = "SELECT * FROM admin WHERE login = ? AND password = ?";
 
         try (Connection connect = database.connectDb();
-             PreparedStatement prepare = connect.prepareStatement(sql)) {
+                PreparedStatement prepare = connect.prepareStatement(sql)) {
 
             prepare.setString(1, login.getText());
             prepare.setString(2, password.getText());
@@ -73,11 +72,13 @@ public class FXMLDocumentController implements Initializable {
 
     private void openDashboard() {
         try {
+            getData.username = login.getText();
+            System.out.println("DEBUG: Username salvo como: " + getData.username);
+
             Parent root = FXMLLoader.load(getClass().getResource("dashboard.fxml"));
             Stage stage = new Stage();
             Scene scene = new Scene(root);
 
-            // Configuração para arrastar a janela
             double[] offset = new double[2]; // Substitui x e y
             root.setOnMousePressed((MouseEvent event) -> {
                 offset[0] = event.getSceneX();
@@ -93,7 +94,6 @@ public class FXMLDocumentController implements Initializable {
             stage.setScene(scene);
             stage.show();
 
-            // Fecha a janela de login
             loginBtn.getScene().getWindow().hide();
         } catch (IOException e) {
             showAlert(AlertType.ERROR, ERROR_TITLE, "Não foi possível carregar a tela de dashboard.");
