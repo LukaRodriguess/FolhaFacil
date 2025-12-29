@@ -43,4 +43,4 @@ logs/
 # Configurações locais
 *.properties
 .env
-config/
+config/"/employee_images/" 
