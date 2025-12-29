@@ -54,29 +54,13 @@ Cálculo automático da folha de pagamento
 - **phpMyAdmin** - Admin do banco
 
 ## 📁 Estrutura do Projeto
-FolhaFácil/
-├── src/folhafácil/
-│ ├── FolhaFacil.java
-│ ├── FXMLDocumentController.java
-│ ├── dashboardController.java
-│ ├── database.java
-│ ├── employeeData.java
-│ ├── getData.java
-│ ├── FXMLDocument.fxml
-│ ├── dashboard.fxml
-│ ├── loginDesign.css
-│ └── dashboardDesign.css
-├── lib/
-│ ├── mysql-connector-java-8.0.26.jar
-│ ├── fontawesomefx-8.9.jar
-│ ├── jfreechart-1.0.19.jar
-│ ├── ojdbc17.jar
-│ └── json-20250107.jar
-├── database/
-│ └── employee_backup.sql
-├── employee_images/
-├── .gitignore
-└── README.md
+src/folhafácil/ - Código fonte Java e interfaces
+
+lib/ - Bibliotecas externas (MySQL, gráficos, ícones)
+
+database/ - Scripts SQL de backup
+
+employee_images/ - Fotos dos funcionários
 
 ## ⚙️ Funcionalidades
 - ✅ Login com validação MySQL
